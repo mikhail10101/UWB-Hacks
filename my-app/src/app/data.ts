@@ -10,15 +10,19 @@ const client = new DiscussServiceClient({
   authClient: new GoogleAuth().fromAPIKey(API_KEY),
 });
 
-export async function askBot() {
+export async function askBot(
+    context_: string,
+    message_: string
+) {
     const result = await client.generateMessage({
         model: MODEL_NAME, // Required. The model to use to generate the result.
         temperature: 0.5, // Optional. Value `0.0` always uses the highest-probability result.
         candidateCount: 1, // Optional. The number of candidate results to generate.
         prompt: {
         // optional, preamble context to prime responses
-        context: "Respond to all questions with a rhyming poem.",
+        context: context_,
         // Optional. Examples for further fine-tuning of responses.
+        /*
         examples: [
             {
             input: { content: "What is the capital of California?" },
@@ -29,8 +33,9 @@ export async function askBot() {
             },
             },
         ],
+        */
         // Required. Alternating prompt/response messages.
-        messages: [{ content: "How tall is the Eiffel Tower?" }],
+        messages: [{ content: message_ }],
         },
     });
 
