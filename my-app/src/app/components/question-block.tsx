@@ -2,9 +2,10 @@
 
 import { ChangeEvent, useState } from "react"
 
-export default function QuestionBlock({questionAmount, item} : {
+export default function QuestionBlock({questionAmount, item, wrapperFunc} : {
     questionAmount: Number,
-    item: string
+    item: string,
+    wrapperFunc: () => void
 }) {
     const [reply, setReply] = useState("")
     const [input, setInput] = useState("")
@@ -67,7 +68,7 @@ export default function QuestionBlock({questionAmount, item} : {
     const nextQuestion = () => {
         localStorage.setItem(`q${index}`,input)
         localStorage.setItem(`a${index}`,reply)
-
+        wrapperFunc()
         setInput("")
         setReply("")
         setIndex(index+1)
