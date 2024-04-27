@@ -18,7 +18,6 @@ const HamButton = () => {
       </svg>
       </button>
       <div className={`fixed top-0 left-[-8rem] h-full w-[16rem] bg-white transform transition-transform ${isOpen ? 'translate-x-[6rem]' : '-translate-x-[10rem]'}`}>
-
         <div className="p-4"></div>
       </div>
       </>
