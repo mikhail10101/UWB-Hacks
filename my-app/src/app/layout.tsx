@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import HamButton from "./components/hambutton";
 
 import AuthProvider from "./api/auth/provider"
 
@@ -19,7 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <nav className="h-[4rem] bg-slate-400 fixed top-0 w-full z-10">
+          <div className="container mx-auto">
+            <HamButton></HamButton>
+            <nav className="flex items-center justify-end">
+            <a href="/login" className="absolute top-[.1rem] right-[1.5rem] bg-inherit rounded-md flex items-center justify-center underline underline-offset-1 mt-[1.25rem] text-white">Login</a>
+            </nav>
+          </div>  
+          </nav>
+          {children}
+
+        </body>
       </AuthProvider>
     </html>
   );
