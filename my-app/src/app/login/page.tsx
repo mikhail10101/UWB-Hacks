@@ -1,9 +1,9 @@
-export default async function main() {
-       
-  
+import LoginCard from "../components/login-card"
+
+export default function LoginPage() {
     return (
-      <div className="w-screen h-screen flex items-center justify-center p-10">
-        Login Screen
-      </div>
+        <div className="h-screen flex items-center justify-center">
+            <LoginCard />
+        </div>
     )
-  }
+}
