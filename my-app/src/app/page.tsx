@@ -1,3 +1,4 @@
+
 import { askBot } from "../data";
 import Link from "next/link";
 import HamButton from "./components/hambutton";
@@ -38,7 +39,6 @@ export default async function main() {
             <div className="bg-inherit rounded-md flex items-center justify-center underline underline-offset-1 text-white">RULES</div>
           </Link>
         </div>
-    </div>
     </>
   )
 }
