@@ -4,7 +4,6 @@ import HamButton from "./components/hambutton";
 export default function main() {
   return (
     <>
-
       <div className="w-screenç h-screen flex flex-col items-center justify-center bg-slate-700">
         <img src="/hanni.png" alt="Logo" className="w-[15rem] h-auto" />
         <div className="w-[40rem] gap-[3rem]">
