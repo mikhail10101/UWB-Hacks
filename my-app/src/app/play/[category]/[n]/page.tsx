@@ -1,3 +1,4 @@
+import QuestionBlockWrapper from '@/app/components/question-block-wrapper';
 import { notFound } from 'next/navigation'
 
 export default function NumberedPlayPage({ params }: {params: {category: string, n : string}}) {
@@ -13,8 +14,8 @@ export default function NumberedPlayPage({ params }: {params: {category: string,
     if (!valid) notFound()
     
     return (
-        <div>
-            {q}
+        <div className='w-screen h-screen flex items-center justify-center'>
+            <QuestionBlockWrapper category={params.category} n={q} />
         </div>
     )
 }
