@@ -12,35 +12,41 @@ const client = new DiscussServiceClient({
 
 const check = process.env.GOOGLE_APIKEY;
 
-export async function askBot(
-    context_: string,
-    message_: string
-) {
+export async function POST(req: Request) {
+    const { subject, text } = await req.json()
 
     const result = await client.generateMessage({
         model: MODEL_NAME, // Required. The model to use to generate the result.
-        temperature: 0.5, // Optional. Value `0.0` always uses the highest-probability result.
+        temperature: 0.0, // Optional. Value `0.0` always uses the highest-probability result.
         candidateCount: 1, // Optional. The number of candidate results to generate.
         prompt: {
         // optional, preamble context to prime responses
-        context: context_,
+        context: "Start your answer to the question with a yes or no",
         // Optional. Examples for further fine-tuning of responses.
-        /*
+        
         examples: [
             {
-            input: { content: "What is the capital of California?" },
-            output: {
-                content:
-                `If the capital of California is what you seek,
-    Sacramento is where you ought to peek.`,
+                input: { content: "Rocks: Is it alive" },
+                output: {
+                    content:
+                        `No`,
+                },
             },
+            {
+                input: { content: "Water: Does it have hydrogen?" },
+                output: {
+                    content:
+                        `Yes`,
+                },
             },
         ],
-        */
+        
         // Required. Alternating prompt/response messages.
-        messages: [{ content: message_ }],
+        messages: [{ content: `A question about ${subject}, not you: ${text}` }],
         },
     });
-
-    return result[0].candidates[0].content
+    
+    const answer = result[0].candidates[0].content
+    console.log(answer)
+    return Response.json({ answer })
 }
