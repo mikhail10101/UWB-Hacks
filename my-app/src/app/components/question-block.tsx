@@ -120,6 +120,7 @@ export default function QuestionBlock({questionAmount, item} : {
         return (
             <div>
                 {
+                    //Guess the word panel
                     done == 0 &&
                     (<div>
                         <form action={handleGuess}>
@@ -143,6 +144,7 @@ export default function QuestionBlock({questionAmount, item} : {
                     </div>)
                 }
                 {
+                    //You were right
                     done == 1 &&
                     (<div className="flex flex-col">
                         <p>Nice job!</p>
@@ -151,6 +153,7 @@ export default function QuestionBlock({questionAmount, item} : {
                     </div>)
                 }
                 {
+                    //You were wrong
                     done == 2 && 
                     (<div>
                         <p>Nice try! Better luck next time</p>
@@ -159,10 +162,11 @@ export default function QuestionBlock({questionAmount, item} : {
                     </div>)
                 }
                 {
+                    //Try again button
                     (done == 1 || done == 2) &&
                     (<div>
                         <button onClick={reset}>
-                            Start again?
+                            Try again?
                         </button>
                     </div>)
                 }

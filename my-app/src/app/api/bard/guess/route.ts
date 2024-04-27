@@ -47,6 +47,7 @@ export async function POST(req: Request) {
     });
     
     const answer = result[0].candidates[0].content
+    console.log("My guess: " + text)
     console.log(answer)
     return Response.json({ answer })
 }
