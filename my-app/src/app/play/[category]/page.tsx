@@ -1,8 +1,18 @@
+import { notFound } from "next/navigation"
 import Link from "next/link"
 
 export default function CategoryPage({ params }: {params: {category: string}}) {
     const { category } = params
-    const arr = [5, 10, 20, 40]
+
+    var valid = false
+    const cats = ["diseases"]
+    cats.map((c) => {
+        if (c == category)
+        valid = true
+    })
+    if (!valid) notFound()
+
+    const arr = [5, 10, 20, 30]
     
     return (
         <div className="h-screen w-screen flex flex-col items-center justify-center">

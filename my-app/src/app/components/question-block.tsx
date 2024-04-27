@@ -65,6 +65,9 @@ export default function QuestionBlock({questionAmount, item} : {
     }
 
     const nextQuestion = () => {
+        localStorage.setItem(`q${index}`,input)
+        localStorage.setItem(`a${index}`,reply)
+
         setInput("")
         setReply("")
         setIndex(index+1)
