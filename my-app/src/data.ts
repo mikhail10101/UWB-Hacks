@@ -10,10 +10,13 @@ const client = new DiscussServiceClient({
   authClient: new GoogleAuth().fromAPIKey(API_KEY),
 });
 
+const check = process.env.GOOGLE_APIKEY;
+
 export async function askBot(
     context_: string,
     message_: string
 ) {
+
     const result = await client.generateMessage({
         model: MODEL_NAME, // Required. The model to use to generate the result.
         temperature: 0.5, // Optional. Value `0.0` always uses the highest-probability result.
