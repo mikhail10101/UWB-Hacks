@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         ],
         
         // Required. Alternating prompt/response messages.
-        messages: [{ content: `Are ${subject} and ${text} synonymous` }],
+        messages: [{ content: `Start the answer with a yes or no. ${subject} is the corrent answer. My answer is ${text}. Am I correct?` }],
         },
     });
     

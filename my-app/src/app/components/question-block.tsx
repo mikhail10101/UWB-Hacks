@@ -31,7 +31,7 @@ export default function QuestionBlock({questionAmount, item} : {
 
         const data = await validate.json()
 
-        if (data.answer.startsWith("Yes")) {
+        if (data.answer.startsWith("Yes") || data.answer.startsWith(`The text "${formData.get("question")}" is a valid`)) {
         } else {
             setErrorOne(true)
             return

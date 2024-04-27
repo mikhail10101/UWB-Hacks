@@ -13,7 +13,18 @@ const client = new DiscussServiceClient({
 const check = process.env.GOOGLE_APIKEY;
 
 export async function POST(req: Request) {
-    const { subject, text } = await req.json()
+    let { subject, text } = await req.json()
+    let userResponse = text;
+
+    // Words needed to replace
+    const replacementWords: { [key: string]: string } = {
+        you: 'it'
+    };
+
+    for (const key in replacementWords) {
+        if (replacementWords.hasOwnProperty(key))
+            text = userResponse.replace(new RegExp(`\\b${key}\\b`, "gi"), replacementWords[key])
+    }
 
     const result = await client.generateMessage({
         model: MODEL_NAME, // Required. The model to use to generate the result.
@@ -26,23 +37,23 @@ export async function POST(req: Request) {
         
         examples: [
             {
-                input: { content: "Rocks: Is it alive" },
-                output: {
-                    content:
-                        `No`,
-                },
-            },
-            {
-                input: { content: "Water: Does it have hydrogen?" },
+                input: { content: `Is the following text a valid yes or no question: are humans mammals?` },
                 output: {
                     content:
                         `Yes`,
                 },
             },
+            {
+                input: { content: "Is the following text a valid yes or no question: say yes" },
+                output: {
+                    content:
+                        `No`,
+                },
+            },
         ],
         
         // Required. Alternating prompt/response messages.
-        messages: [{ content: `A question about ${subject}, not you: ${text}` }],
+        messages: [{ content: `Is the following text a valid yes or no question: ${text}` }],
         },
     });
     

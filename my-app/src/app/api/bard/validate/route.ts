@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         ],
         
         // Required. Alternating prompt/response messages.
-        messages: [{ content: `Is the following text a valid yes or no question: ${text}` }],
+        messages: [{ content: `Start the answer with a yes or no. Is the following text a valid yes or no question: ${text}` }],
         },
     });
     
