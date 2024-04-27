@@ -13,7 +13,7 @@ const client = new DiscussServiceClient({
 const check = process.env.GOOGLE_APIKEY;
 
 export async function POST(req: Request) {
-    const { text } = await req.json()
+    const { subject, text } = await req.json()
 
     const result = await client.generateMessage({
         model: MODEL_NAME, // Required. The model to use to generate the result.
@@ -26,14 +26,14 @@ export async function POST(req: Request) {
         
         examples: [
             {
-                input: { content: `Is the following text a valid yes or no question: are humans mammals?` },
+                input: { content: "Are water and H20 synonymous?" },
                 output: {
                     content:
                         `Yes`,
                 },
             },
             {
-                input: { content: "Is the following text a valid yes or no question: say yes" },
+                input: { content: "Are dog and cat synonymous?" },
                 output: {
                     content:
                         `No`,
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         ],
         
         // Required. Alternating prompt/response messages.
-        messages: [{ content: `Is the following text a valid yes or no question: ${text}` }],
+        messages: [{ content: `Are ${subject} and ${text} synonymous` }],
         },
     });
     

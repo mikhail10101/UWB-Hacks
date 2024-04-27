@@ -21,7 +21,7 @@ export async function POST(req: Request) {
         candidateCount: 1, // Optional. The number of candidate results to generate.
         prompt: {
         // optional, preamble context to prime responses
-        context: "Start your answer to the question with a yes or no",
+        context: "Start your answer with a yes or no",
         // Optional. Examples for further fine-tuning of responses.
         
         examples: [
