@@ -15,7 +15,7 @@ export default function PlayPage() {
           {cats.map((c) => {
             return (
                 <Link href={`/play/${c}`}>
-                    <div key={c} className="text-2xl w-[15rem] h-[3.25rem] bg-[#AC3B61]  hover:opacity-80 outline outline-1 rounded-md flex items-center justify-center text-1xl text-white font-serif gap-[1rem]">
+              <div className="text-2xl w-[15rem] h-[3.25rem] bg-[#AC3B61] ease-out duration-300 hover:-translate-y-6 outline outline-1 rounded-md flex items-center justify-center text-1xl text-white font-serif gap-[1rem]">
                         <p>{c.charAt(0).toUpperCase() + c.slice(1)}</p>
                     </div>
                 </Link>

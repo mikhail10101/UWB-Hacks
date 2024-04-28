@@ -31,7 +31,7 @@ export default function CategoryPage({
         <div className="minw-1/2 min-h-1/4 flex items-center justify-around flex-wrap">
           {arr.map((i) => (
             <Link href={`/play/${category}/${i}`} key={i}>
-              <div className="text-2xl w-[15rem] h-[3.25rem] bg-[#AC3B61] hover:bg-[#EEE2DC] outline outline-1 rounded-md flex items-center justify-center text-1xl text-white font-serif gap-[1rem]">
+              <div className="text-2xl w-[15rem] h-[3.25rem] bg-[#AC3B61] ease-out duration-300 hover:-translate-y-6 outline outline-1 rounded-md flex items-center justify-center text-1xl text-white font-serif gap-[1rem]">
                 <p className="m-0">{i}</p>
               </div>
             </Link>
