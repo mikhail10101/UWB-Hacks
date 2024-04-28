@@ -17,7 +17,7 @@ export default function LoginCard() {
                 </p>
             </div>    
             <div className='flex flex-col gap-3'>
-                <Link className="flex flex-row items-center gap-2 py-3 w-[15rem] justify-center outline rounded-3xl hover:opacity-75 hover:text-white"
+                <Link className="flex flex-row items-center gap-2 py-3 w-[15rem] justify-center outline rounded-3xl hover:opacity-75 hover:[#BAB2B5]"
                     href="/login/email">
                     <div className='w-5'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -28,7 +28,7 @@ export default function LoginCard() {
                     </div>
                     <p className='font-semibold'>Sign in with Email</p>
                 </Link>
-                <button className="flex flex-row items-center gap-2 py-3 w-[15rem] justify-center outline rounded-3xl hover:opacity-75 hover:text-white"
+                <button className="flex flex-row items-center gap-2 py-3 w-[15rem] justify-center outline rounded-3xl hover:opacity-75 hover:text-[#BAB2B5]"
                     onClick={() => signIn('google', { callbackUrl: "/" })}>
                     <div className='w-5'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
@@ -37,7 +37,7 @@ export default function LoginCard() {
                     </div>
                     <p className='font-semibold'>Sign in with Google</p>
                 </button>
-                <button className="flex flex-row items-center gap-2 py-3 w-[15rem] justify-center outline rounded-3xl hover:opacity-75 hover:text-white"
+                <button className="flex flex-row items-center gap-2 py-3 w-[15rem] justify-center outline rounded-3xl hover:opacity-75 hover:[#BAB2B5]"
                     onClick={() => signIn('github', { callbackUrl: "/" })}>
                     <div className='w-5'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -48,7 +48,7 @@ export default function LoginCard() {
                 </button>
             </div>
             <Link href="/">
-                <p className='text-white font-semibold py-5 hover:underline'>Back</p>
+                <p className='text-[#AC3B61] font-semibold py-5 hover:underline'>Back</p>
             </Link>
         </div>
     )
