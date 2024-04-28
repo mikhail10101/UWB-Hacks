@@ -2,10 +2,11 @@
 
 import { ChangeEvent, useState } from "react"
 
-export default function QuestionBlock({questionAmount, item, wrapperFunc} : {
+export default function QuestionBlock({questionAmount, item, wrapperFunc, wrapperReset} : {
     questionAmount: number,
     item: string,
-    wrapperFunc: () => void
+    wrapperFunc: () => void,
+    wrapperReset: () => void
 }) {
     const [reply, setReply] = useState("")
     const [input, setInput] = useState("")
@@ -127,6 +128,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc} : {
         setGuess("")
         setErrorThree(false)
         setDone(0)
+        wrapperReset()
     }
 
     if (index == questionAmount) {
