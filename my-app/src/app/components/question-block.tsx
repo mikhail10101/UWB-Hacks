@@ -196,7 +196,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
 
     return (
             <div className="w-screen h-screen flex flex-col bg-[#EDC7B7] items-center justify-center">
-                <img src="/hanni.png" alt="Logo" className="w-[15rem] h-auto mb-2 rounded-3xl"></img>
+                <img src="/iconroundtwo.png" alt="Logo" className="w-[15rem] h-auto mb-2 rounded-3xl"></img>
                 <p className="mb-5 font-black text-[#AC3B61] text-xl">
                     Question {index+1}
                 </p>
