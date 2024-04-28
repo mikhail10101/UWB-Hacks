@@ -21,8 +21,7 @@ const HamButton = ({ display }: {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
       </button>
-        <div className={`bg-white fixed flex justify-center top-0 left-[-8rem] h-full w-[16rem] transform transition-transform overflow-scroll ${isOpen ? 'translate-x-[8rem]' : '-translate-x-[10rem]'}`}>
-          <div className='flex flex-col text-black mt-[5rem] w-[11rem]'>
+        <div className={`bg-white fixed flex flex-col pt-[5rem] justify-center top-0 left-[-8rem] h-full w-[16rem] transform transition-transform overflow-scroll ${isOpen ? 'translate-x-[8rem]' : '-translate-x-[10rem]'}`}>
             {
               display.map((d, index) => {
                 const { question, answer } = d
@@ -34,7 +33,6 @@ const HamButton = ({ display }: {
                 )
               })
             }
-          </div>
         <div className="p-4"></div>
       </div>
       </>
