@@ -58,6 +58,7 @@ export async function POST(req: Request) {
     });
     
     const answer = result[0].candidates[0].content
+    console.log(`Start the answer with a yes or no. ${subject}, ${text}`)
     console.log(answer)
     return Response.json({ answer })
 }
