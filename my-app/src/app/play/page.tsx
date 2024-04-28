@@ -14,7 +14,7 @@ export default function PlayPage() {
         <div className="min-w-1/2 min-h-1/4 flex items-center justify-around">
           {cats.map((c) => {
             return (
-                <Link href={`/play/${c}`}>
+                <Link key={c} href={`/play/${c}`}>
                     <div className="text-2xl w-[15rem] h-[3.25rem] bg-[#AC3B61] ease-out duration-500 hover:-translate-y-2 outline outline-1 rounded-md flex items-center justify-center text-1xl text-white font-serif gap-[1rem]">
                         <p>{c.charAt(0).toUpperCase() + c.slice(1)}</p>
                     </div>

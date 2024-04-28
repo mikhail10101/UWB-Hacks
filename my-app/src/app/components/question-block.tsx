@@ -18,6 +18,8 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
     const [guess, setGuess] = useState("")
     const [errorThree, setErrorThree] = useState(false)
 
+    const [description, setDescription] = useState("")
+
     const [done, setDone] = useState(0)
 
     const handleSubmit = async (formData: FormData) => {
@@ -30,7 +32,8 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
             },
             body: JSON.stringify({
                 text: formData.get("question")
-            })
+            }),
+            cache: 'no-store'
         })
 
         const data = await validate.json()
@@ -50,7 +53,8 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
             body: JSON.stringify({
                 subject: item,
                 text: formData.get("question")
-            })
+            }),
+            cache: 'no-store'
         })
 
         const { answer } = await res.json()
@@ -96,10 +100,25 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
             body: JSON.stringify({
                 subject: item,
                 text: formData.get("guess")
-            })
+            }),
+            cache: 'no-store'
         })
 
         const { answer } = await guess.json()
+
+        const define = await fetch('/api/bard/define', {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                text: item
+            }),
+            cache: 'no-store'
+        })
+        const descri = await define.json()
+        setDescription(descri.answer)
 
         if ( answer.startsWith("Yes") ) {
             setDone(1)
@@ -156,9 +175,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                 />
                             </div>
                             <div className="flex flex-col items-center justify-center">
-                                <button type="submit" className="mt-5 bg-[#ce6a6b] font-black px-8 py-2 text-lg rounded-lg hover:opacity-75">
-                                    Submit
-                                </button>
+                                <InputSubmitButton/>
                             </div>
                         </form>
                     </div>)
@@ -168,16 +185,23 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                     done == 1 &&
                     (<div>
                         <div className="min-w-[20rem] min-h-[15rem] flex flex-col items-center justify-center">
-                            <div>
-                                <p className = "mb-2.5 text-3xl px-1 text-[#AC3B61] font-bold">Correct! It was {item}</p>
-                                
+                            <p className="text-3xl font-black m-8">
+                                GREAT JOB!!!
+                            </p>
+                            <div className="flex gap-1">
+                                <p className = "text-3xl px-1 text-[#AC3B61] text-center font-medium">The answer was</p>
+                                <p className = "text-3xl text-[#AC3B61] font-bold">{item}</p>   
                             </div>
-                            <div className="max-w-[30rem]">
-                                <p className="p-[1rem] font-serif text-2xl">{/*<p>{description}</p>*/}</p>
+                            <div className="flex gap-1">
+                                <p className = "text-3xl px-1 text-[#123C69] text-center font-medium">You guessed</p>
+                                <p className = "text-3xl text-[#123C69] font-bold">{guess}</p>   
                             </div>
-                            <div>
-                                <p className = "mb-2.5 text-3xl px-1 text-[#123C69] font-bold">You guessed {guess} too</p> 
-                            </div>
+                            <p className="p-[1rem] ml-[2rem] font-medium text-base text-black italic w-[25rem] h-[10rem] text-ellipsis overflow-hidden text-pretty">
+                                {description}
+                            </p>
+                            <p className="text-base font-medium text-black italic">
+                                ...
+                            </p>
                         </div>
                     </div>)
                 }
@@ -186,25 +210,32 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                     done == 2 && 
                     (<div>
                         <div className="min-w-[20rem] min-h-[15rem] flex flex-col items-center justify-center">
-                            <div>
-                                <p className = "mb-2.5 text-3xl px-1 text-[#AC3B61] font-bold">Wrong! It was {item}</p>
-                                
+                            <p className="text-3xl font-black m-8">
+                                WRONG!!!
+                            </p>
+                            <div className="flex gap-1">
+                                <p className = "text-3xl px-1 text-[#AC3B61] text-center font-medium">The answer was</p>
+                                <p className = "text-3xl text-[#AC3B61] font-bold">{item}</p>   
                             </div>
-                            <div className="max-w-[30rem]">
-                                <p className="p-[1rem] font-serif text-2xl">{/*<p>{description}</p>*/}</p>
+                            <div className="flex gap-1">
+                                <p className = "text-3xl px-1 text-[#123C69] text-center font-medium">You guessed</p>
+                                <p className = "text-3xl text-[#123C69] font-bold">{guess}</p>   
                             </div>
-                            <div>
-                                <p className = "mb-2.5 text-3xl px-1 text-[#123C69] font-bold">You guessed {guess}...</p> 
-                            </div>
+                            <p className="p-[1rem] ml-[2rem] font-medium text-base text-black italic w-[25rem] h-[10rem] text-ellipsis overflow-hidden text-pretty">
+                                {description}
+                            </p>
+                            <p className="text-base font-medium text-black italic">
+                                ...
+                            </p>
                         </div>
                     </div>)
                 }
                 {
                     //Try again button
                     (done == 1 || done == 2) &&
-                    (<div>
-                        <button onClick={reset} className="mt-2 bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
-                            Try again?
+                    (<div className="mt-5">
+                        <button onClick={reset} className="font-bold mt-2 bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75 transition duration-500 hover:scale-[1.05]">
+                            Play again?
                         </button>
                     </div>)
                 }
