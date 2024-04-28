@@ -16,7 +16,7 @@ export default function SendEmailForm() {
                     Log in
                 </p>
                 <p className='font-medium text-xs w-[17rem] pl-2'>
-                    Logging in to MovieRater allows you to track your past submissions
+                    Logging in to JAM lets you see your past games
                 </p>
             </div> 
             <form className="pl-5 flex flex-col" action={handleSubmit}>
@@ -28,7 +28,7 @@ export default function SendEmailForm() {
                 </div>
             </form>
             <Link href="/login">
-                <p className='text-blue-600 font-semibold py-5 hover:underline'>Back</p>
+                <p className='text-white font-semibold py-5 hover:underline'>Back</p>
             </Link>
         </div>
     )
