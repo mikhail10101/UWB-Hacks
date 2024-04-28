@@ -17,27 +17,30 @@ export default function main() {
           Rules
         </p>
       </Link>
-      <div className="w-screenç h-screen flex flex-col items-center justify-center bg-[#EEE2DC]">
-        <img src="/hanni.png" alt="Logo" className="w-[15rem] h-auto" />
-        <div className="w-[40rem] mt-[1rem] flex flex-row items-center justify-center mr-[4rem]">
-          <div className="flex items-center justify-center gap-[6rem]">
-            <div>
-              <p className="text-5xl font-serif font-bold">Ask me questions</p>
+      <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#EEE2DC]">
+        <img src="/iconroundthree.png" alt="Logo" className="w-[15rem] h-auto rounded-full" />
+
+
+        <div className="w-[60rem] mt-[1rem]  flex flex-row items-center justify-around">
+
+            <div className="w-[20rem] flex items-center justify-center">
+              <p className="text-5xl text-center font-serif font-bold text-[#123C69]">Ask me questions</p>
             </div>
-            <div className="w-[10rem] h-[10rem] flex flex-col items-center justify-center">
+
+            <div className="w-[20rem] h-[10rem] flex flex-col items-center justify-center">
               <Link href="/play">
                 <div className="w-[12rem] h-[3rem] bg-[#AC3B61] hover:opacity-90 rounded-md rounded-tr-lg flex items-center justify-center text-1xl text-white">
-                  Play
+                  <p className="text-center">Play</p>
                 </div>
               </Link>
             </div>
-            <div>
-              <p className="text-5xl font-serif font-bold">
+
+            <div className="w-[20rem] flex items-center justify-center">
+              <p className="text-5xl text-center font-serif font-bold text-[#123C69]">
                 I'll answer YES or NO
               </p>
             </div>
 
-          </div>
         </div>
       </div>
     </>
