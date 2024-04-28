@@ -21,13 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
         <body className={inter.className}>
-          <nav className="h-[4rem] bg-slate-400 fixed top-0 w-full z-10">
-          <div className="container mx-auto">
-            <HamButton></HamButton>
-            <nav className="flex items-center justify-end">
-            <a href="/login" className="absolute top-[.1rem] right-[1.5rem] bg-inherit rounded-md flex items-center justify-center underline underline-offset-1 mt-[1.25rem] text-white">Login</a>
-            </nav>
-          </div>  
+
+          <nav className="h-[4rem] bg-[#EEE2DC] fixed top-0 w-full z-10">
+          <div className="absolute left-[48%] top-[1.25rem] font-bold text-2xl text-[#ebaca2]">JAM</div>
           </nav>
           {children}
 
