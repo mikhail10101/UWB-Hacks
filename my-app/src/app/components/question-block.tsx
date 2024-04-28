@@ -166,19 +166,37 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                 {
                     //You were right
                     done == 1 &&
-                    (<div className="flex flex-col items-center justify-center">
-                        <p className = "mb-2.5 text-3xl ring-2 ring-[white] rounded-lg px-1">Nice job!</p>
-                        <p className = "mb-2.5 text-3xl ring-2 ring-[white] rounded-lg px-1">Your guess: {guess}</p> 
-                        <p className = "mb-2.5 text-3xl ring-2 ring-[white] rounded-lg px-1">Answer: {item}</p>
+                    (<div>
+                        <div className="min-w-[20rem] min-h-[15rem] flex flex-col items-center justify-center">
+                            <div>
+                                <p className = "mb-2.5 text-3xl px-1 text-[#AC3B61] font-bold">Correct! It was {item}</p>
+                                
+                            </div>
+                            <div className="max-w-[30rem]">
+                                <p className="p-[1rem] font-serif text-2xl">{/*<p>{description}</p>*/}</p>
+                            </div>
+                            <div>
+                                <p className = "mb-2.5 text-3xl px-1 text-[#123C69] font-bold">You guessed {guess} too</p> 
+                            </div>
+                        </div>
                     </div>)
                 }
                 {
                     //You were wrong
                     done == 2 && 
                     (<div>
-                        <p className = "mb-2.5 text-3xl ring-2 ring-[white] rounded-lg px-1">Nice try! Better luck next time</p>
-                        <p className = "mb-2.5 text-3xl ring-2 ring-[white] rounded-lg px-1">Your guess: {guess}</p> 
-                        <p className = "mb-5 text-3xl ring-2 ring-[white] rounded-lg px-1">Answer: {item}</p>
+                        <div className="min-w-[20rem] min-h-[15rem] flex flex-col items-center justify-center">
+                            <div>
+                                <p className = "mb-2.5 text-3xl px-1 text-[#AC3B61] font-bold">Wrong! It was {item}</p>
+                                
+                            </div>
+                            <div className="max-w-[30rem]">
+                                <p className="p-[1rem] font-serif text-2xl">{/*<p>{description}</p>*/}</p>
+                            </div>
+                            <div>
+                                <p className = "mb-2.5 text-3xl px-1 text-[#123C69] font-bold">You guessed {guess}...</p> 
+                            </div>
+                        </div>
                     </div>)
                 }
                 {
@@ -202,21 +220,21 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                 <p className="mb-5 font-black text-[#AC3B61] text-xl">
                     Question {index+1}
                 </p>
-                <div className="flex flex-col items-center items-center justify-center h-[10rem]">
+                <div className="flex flex-col items-center justify-center h-[10rem]">
 
                 {reply == ""
 
                     ?
                     <div className="w-full items-center">
                         <form action={handleSubmit} className="flex flex-col items-center">
-                            <div className="flex flex-col items-center w-full items-center">
+                            <div className="flex flex-col items-center w-full">
                                 <p className = "text font-bold text-[#123C69]">
                                     Ask a yes or no question about the subject!
                                 </p>
                                 <p className="text-xs font-black text-[#AC3B61]">
                                 </p>
                                 <input  
-                                    className="text-black m-3 py-2 font-medium text-3xl max-w-3/4 w-[50rem] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da] placeholder:text-sm"
+                                    className="text-black m-3 font-medium text-3xl max-w-3/4 w-[50rem] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da] placeholder:text-sm"
                                     autoFocus={true}
                                     autoComplete="off"
                                     value={input}
