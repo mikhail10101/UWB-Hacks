@@ -1,7 +1,9 @@
 "use client"
 import React from 'react'
 import { useState } from 'react'
+import { Heebo } from 'next/font/google';
 
+export const heebo = Heebo({ weight: '400', subsets: ['latin']});
 const HamButton = ({ display }: {
   display: { question: string, answer: string }[]
 }) => {
@@ -19,15 +21,15 @@ const HamButton = ({ display }: {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
       </button>
-        <div className={`fixed flex justify-center top-0 left-[-8rem] h-full w-[16rem] bg-white transform transition-transform ${isOpen ? 'translate-x-[8rem]' : '-translate-x-[10rem]'}`}>
-          <div className='flex flex-col text-black mt-[4rem] w-[10rem]'>
+        <div className={`bg-[#e8b7a0] fixed flex justify-center top-0 left-[-8rem] h-full w-[16rem] bg-white transform transition-transform ${isOpen ? 'translate-x-[8rem]' : '-translate-x-[10rem]'}`}>
+          <div className='flex flex-col text-black mt-[5rem] w-[11rem]'>
             {
               display.map((d, index) => {
                 const { question, answer } = d
                 return (
                   <div key={index + ""} className='flex flex-col'>
-                    <p>Q{index+1}: {question}</p>
-                    <p>A{index+1}: {answer}</p>
+                    <p className="text-lg text-[#ce6a6b] font-bold font-sertif">{index+1}. {question}</p>
+                    <p className="text-sm text-[#ce6a6b] ml-4 mb-2 font-bold font-sertif">-{answer}</p>
                   </div>
                 )
               })
