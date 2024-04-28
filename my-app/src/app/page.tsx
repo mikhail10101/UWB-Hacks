@@ -15,7 +15,6 @@ export default function main() {
 
       <Link href="/rules">
         <p className="absolute font-medium top-[.1rem] right-[5.5rem] bg-inherit rounded-md flex items-center justify-center hover:underline hover:underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50">
-
           Rules
         </p>
       </Link>
@@ -29,8 +28,8 @@ export default function main() {
               <p className="text-5xl text-center font-serif font-bold text-[#123C69]">Ask me questions</p>
             </div>
 
-            <div className="w-[20rem] h-[10rem] flex flex-col items-center justify-center transition duration-500 hover:scale-[1.05]">
-              <Link href="/play">
+            <div className="w-[20rem] h-[10rem] flex flex-col items-center justify-center">
+              <Link href="/play" className="transition duration-500 hover:scale-[1.05]">
                 <div className="w-[12rem] h-[3rem] bg-[#AC3B61] hover:opacity-90 rounded-3xl flex items-center justify-center text-1xl text-white">
                   <p className="font-black text-xl text-center">Play</p>
                 </div>
