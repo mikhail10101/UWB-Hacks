@@ -140,9 +140,11 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                     (<div className="flex flex-col items-center justify-center">
                         <form action={handleGuess}>
                             <div className="flex flex-col items-center justify-center">
-                                <p className="mb-5 text-3xl">Type in your guess!</p>
+                                <p className="mb-5 text-3xl font-black text-[#123C69]">
+                                    Type in your guess!
+                                </p>
                                 <input
-                                    className="text-black text-5xl w-64 w-[75%] rounded-2xl px-3 py-1 outline-none text-center"
+                                    className="text-black m-3 py-2 font-medium text-3xl w-[40rem] rounded-2xl px-3 py-1 outline-none text-center"
                                     autoFocus={true}
                                     value={guess}
                                     onChange={guessChange}
@@ -151,8 +153,8 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                 />
                             </div>
                             <div className="flex flex-col items-center justify-center">
-                                <button type="submit" className="mt-5 bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
-                                    Submit!
+                                <button type="submit" className="mt-5 bg-[#ce6a6b] font-black px-8 py-2 text-lg rounded-lg hover:opacity-75">
+                                    Submit
                                 </button>
                             </div>
                         </form>
@@ -193,16 +195,23 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
     return (
             <div className="w-screen h-screen flex flex-col bg-[#EDC7B7] items-center justify-center">
                 <img src="/hanni.png" alt="Logo" className="w-[15rem] h-auto mb-2 rounded-3xl"></img>
-                <p className="mb-5 text-3xl">Question {index+1}</p>
+                <p className="mb-5 font-black text-[#AC3B61] text-xl">
+                    Question {index+1}
+                </p>
                 {reply == ""
 
                     ?
-                    <div className="w-full h-[25%] items-center">
+                    <div className="w-full items-center">
                         <form action={handleSubmit} className="flex flex-col items-center">
                             <div className="flex flex-col items-center w-full items-center">
-                                <p className = "mb-6 text-3xl ring-2 ring-[white] rounded-lg px-1">Ask a yes or no question</p>
+                                <p className = "text font-bold text-[#123C69]">
+                                    Ask a yes or no question about the subject!
+                                </p>
+                                <p className="text-xs font-black text-[#AC3B61]">
+                                    Ex: Is it alive?
+                                </p>
                                 <input  
-                                    className="text-black text-5xl w-64 w-[50%] rounded-2xl px-3 py-1 outline-none text-center"
+                                    className="text-black m-3 py-2 font-medium text-3xl w-64 w-[50%] rounded-2xl px-3 py-1 outline-none text-center"
                                     autoFocus={true}
                                     value={input}
                                     onChange={inputChange}
@@ -211,8 +220,8 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                 />
                             </div>
                             <div>
-                                <button type="submit" className="mt-5 bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
-                                    Submit!
+                                <button type="submit" className="mt-5 bg-[#ce6a6b] font-black px-8 py-2 text-lg rounded-lg hover:opacity-75">
+                                    Submit
                                 </button>
                             </div>
                             {
@@ -233,15 +242,24 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                     </div>
                 
                     :
-                    <div className="flex flex-col">
-                        <p className = "mb-2.5 text-3xl ring-2 ring-[white] rounded-lg px-1">Question: {input}</p>
-                        <p className = "mb-6 text-3xl ring-2 ring-[white] rounded-lg px-1">Answer: {reply}</p>
-                        <button onClick={nextQuestion} className="mt-5 bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
-                            Next
-                        </button>
-                        <button onClick={guessNow}>
-                            Guess now!
-                        </button>
+                    <div className="w-full items-center flex flex-col">
+                        <p className = "text-2xl rounded-lg px-1 font-bold text-[#123C69]">
+                            {input}
+                        </p>
+                        <p className = "text-3xl rounded-lg px-1 font-black text-[#AC3B61]">
+                            {reply}
+                        </p>
+                        <div className="flex flex-row mt-5 items-center justify-center gap-3 font-black">
+                            <button onClick={nextQuestion} className="w-[11rem] bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
+                                Next
+                            </button>
+                            <p className="font-black">
+                                OR
+                            </p>
+                            <button onClick={guessNow} className="w-[11rem] bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
+                                Guess now
+                            </button>
+                        </div>
                     </div>
                 }
             </div>
