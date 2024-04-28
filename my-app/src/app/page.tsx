@@ -12,7 +12,7 @@ export default function main() {
           Login
         </a>
       </nav>
-      <Link href="/login">
+      <Link href="/rules">
         <p className="absolute top-[.1rem] right-[5.5rem] bg-inherit rounded-md flex items-center justify-center underline underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50">
           Rules
         </p>
