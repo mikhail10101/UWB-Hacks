@@ -208,15 +208,15 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                     Ask a yes or no question about the subject!
                                 </p>
                                 <p className="text-xs font-black text-[#AC3B61]">
-                                    Ex: Is it alive?
                                 </p>
                                 <input  
-                                    className="text-black m-3 py-2 font-medium text-3xl w-64 w-[50%] rounded-2xl px-3 py-1 outline-none text-center"
+                                    className="text-black m-3 py-2 font-medium text-3xl w-64 w-[50%] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da] placeholder:text-sm"
                                     autoFocus={true}
                                     value={input}
                                     onChange={inputChange}
                                     name="question"
                                     id="question"
+                                    placeholder="Ex. is it alive?"
                                 />
                             </div>
                             <div>

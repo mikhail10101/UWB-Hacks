@@ -18,7 +18,7 @@ export default function main() {
         </p>
       </Link>
       <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#EEE2DC]">
-        <img src="/iconroundthree.png" alt="Logo" className="w-[15rem] h-auto rounded-full" />
+        <img src="/JamJar.png" alt="Logo" className="w-[15rem] h-auto rounded-full" />
 
 
         <div className="w-[60rem] mt-[1rem]  flex flex-row items-center justify-around">
