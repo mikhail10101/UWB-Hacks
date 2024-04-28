@@ -149,6 +149,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                     className="text-black m-3 py-2 font-medium text-3xl w-[40rem] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da]"
                                     autoFocus={true}
                                     value={guess}
+                                    autoComplete="off"
                                     onChange={guessChange}
                                     name="guess"
                                     id="guess"
@@ -195,11 +196,14 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
     }
 
     return (
-            <div className="w-screen h-screen flex flex-col bg-[#EDC7B7] items-center justify-center">
+            <div className="w-screen h-screen flex flex-col items-center bg-[#EDC7B7] justify-center">
+                
                 <img src="/iconroundtwo.png" alt="Logo" className="w-[15rem] h-auto mb-2 rounded-3xl"></img>
                 <p className="mb-5 font-black text-[#AC3B61] text-xl">
                     Question {index+1}
                 </p>
+                <div className="flex flex-col items-center items-center justify-center h-[10rem]">
+
                 {reply == ""
 
                     ?
@@ -212,8 +216,9 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                 <p className="text-xs font-black text-[#AC3B61]">
                                 </p>
                                 <input  
-                                    className="text-black m-3 py-2 font-medium text-3xl w-64 w-[50%] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da] placeholder:text-sm"
+                                    className="text-black m-3 py-2 font-medium text-3xl max-w-3/4 w-[50rem] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da] placeholder:text-sm"
                                     autoFocus={true}
+                                    autoComplete="off"
                                     value={input}
                                     onChange={inputChange}
                                     name="question"
@@ -258,7 +263,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                             {reply}
                         </p>
                         <div className="flex flex-row mt-5 items-center justify-center gap-3 font-black">
-                            <button onClick={nextQuestion} className="w-[11rem] bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
+                            <button onClick={nextQuestion} autoFocus={true} className="w-[11rem] bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg hover:opacity-75">
                                 Next
                             </button>
                             <p className="font-black">
@@ -270,6 +275,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                         </div>
                     </div>
                 }
+                </div>
             </div>
     )
 } 

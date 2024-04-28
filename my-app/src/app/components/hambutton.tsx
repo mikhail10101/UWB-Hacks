@@ -28,8 +28,8 @@ const HamButton = ({ display }: {
                 const { question, answer } = d
                 return (
                   <div key={index + ""} className='flex flex-col'>
-                    <p className="text-lg text-[#123C69] font-bold font-sertif">{index+1}. {question}</p>
-                    <p className="ml-[1.5rem] text-sm text-[#AC3B61] ml-4 mb-2 font-black font-sertif">{answer}</p>
+                    <p className="text-lg text-[#123C69] font-bold font-serif truncate">{index+1}. {question}</p>
+                    <p className="ml-[1.5rem] text-sm text-[#AC3B61] ml-4 mb-2 font-black">{answer}</p>
                   </div>
                 )
               })
