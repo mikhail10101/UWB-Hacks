@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     else if (text == "animals") {
         answer = selectRandom(animals)
     }
-    else if (text == "counties") {
+    else if (text == "countries") {
         answer = selectRandom(countries)
     }
 

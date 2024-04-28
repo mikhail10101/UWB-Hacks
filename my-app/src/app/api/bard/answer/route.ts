@@ -16,6 +16,8 @@ export async function POST(req: Request) {
     let { subject, text } = await req.json()
     let userResponse = text;
 
+    console.log(subject, text)
+
     // Words needed to replace
     const replacementWords: { [key: string]: string } = {
         you: 'it'
