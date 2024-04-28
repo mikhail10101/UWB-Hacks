@@ -23,7 +23,9 @@ export default function NumberedPlayPage({ params }: {params: {category: string,
     return (
         <div className='w-screen h-screen flex items-center justify-center'>
             <div className="absolute top-[1rem] left-1/4 z-50 text-[#123C69] font-bold text-2xl">{q} Qs</div>
-            <div className="absolute top-[1rem] right-1/4 z-50 text-[#123C69] font-bold text-2xl">{params.category}</div>
+            <div className="absolute top-[1rem] right-1/4 z-50 text-[#123C69] font-bold text-2xl">
+                {params.category.charAt(0).toUpperCase() + params.category.slice(1)}
+            </div>
             <QuestionBlockWrapper category={params.category} n={q} />
         </div>
     )
