@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 export default function NumberedPlayPage({ params }: {params: {category: string, n : string}}) {
     const nums = [5,10,20,30]
-    const cats = ["diseases"]
+    const cats = ["diseases", "animals", "countries"]
     const q = parseInt(params.n)
 
     if (isNaN(q))

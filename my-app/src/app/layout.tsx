@@ -21,7 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <AuthProvider>
         <body className={inter.className}>
-
           <nav className="h-[4rem] bg-[#EEE2DC] fixed top-0 w-full z-10">
           <div className="absolute left-[48%] top-[1.25rem] font-bold text-2xl text-[#ebaca2]">JAM</div>
           </nav>

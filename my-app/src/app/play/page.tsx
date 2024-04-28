@@ -2,7 +2,7 @@ import Link from "next/link";
 import HamButton from "../components/hambutton";
 
 export default function PlayPage() {
-  const cats = ["diseases", "math", "english"];
+  const cats = ["diseases", "animals", "countries"];
 
   return (
     <>
