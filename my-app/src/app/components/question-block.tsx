@@ -146,7 +146,7 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                                     Type in your guess!
                                 </p>
                                 <input
-                                    className="text-black m-3 py-2 font-medium text-3xl w-[40rem] rounded-2xl px-3 py-1 outline-none text-center"
+                                    className="text-black m-3 py-2 font-medium text-3xl w-[40rem] rounded-2xl px-3 py-1 outline-none text-center bg-[#ede0da]"
                                     autoFocus={true}
                                     value={guess}
                                     onChange={guessChange}
