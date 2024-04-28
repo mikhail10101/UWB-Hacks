@@ -3,7 +3,7 @@
 import { ChangeEvent, useState } from "react"
 
 export default function QuestionBlock({questionAmount, item, wrapperFunc} : {
-    questionAmount: Number,
+    questionAmount: number,
     item: string,
     wrapperFunc: () => void
 }) {
@@ -72,6 +72,15 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc} : {
         setInput("")
         setReply("")
         setIndex(index+1)
+    }
+
+    const guessNow = () => {
+        localStorage.setItem(`q${index}`,input)
+        localStorage.setItem(`a${index}`,reply)
+        wrapperFunc()
+        setInput("")
+        setReply("")
+        setIndex(questionAmount)
     }
 
     const handleGuess = async (formData: FormData) => { 
@@ -227,6 +236,9 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc} : {
                         <p className = "mb-6 text-3xl ring-2 ring-[white] rounded-lg px-1">Answer: {reply}</p>
                         <button onClick={nextQuestion} className="mt-5 bg-[#ce6a6b] px-8 py-2 text-lg rounded-lg">
                             Next
+                        </button>
+                        <button onClick={guessNow}>
+                            Guess now!
                         </button>
                     </div>
                 }

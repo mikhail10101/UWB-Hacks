@@ -6,7 +6,7 @@ export default function CategoryPage({ params }: {params: {category: string}}) {
     const { category } = params
 
     var valid = false
-    const cats = ["diseases"]
+    const cats = ["diseases", "animals", "countries"]
     cats.map((c) => {
         if (c == category)
         valid = true
