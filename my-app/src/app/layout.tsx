@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import HamButton from "./components/hambutton";
-
+import Link from "next/link"
 import AuthProvider from "./api/auth/provider"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,7 +22,7 @@ export default function RootLayout({
       <AuthProvider>
         <body className={inter.className}>
           <nav className="h-[4rem] bg-[#EEE2DC] flex items-center justify-center fixed top-0 w-full z-10">
-            <div className="top-[1.25rem] font-black text-3xl text-[#AC3B61]">JAM</div>
+            <Link href="/" className="top-[1.25rem] font-black text-3xl text-[#AC3B61]">JAM</Link>
           </nav>
           {children}
 
