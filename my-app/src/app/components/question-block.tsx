@@ -226,22 +226,22 @@ export default function QuestionBlock({questionAmount, item, wrapperFunc, wrappe
                             </div>
                             {
                                 errorOne ? (
-                                    <div className="text-xs h-[0.5rem] font-black">
+                                    <div className="mt-1 text-xs h-[0.5rem] font-black">
                                         <p>*Please ask a yes or no question</p>
                                     </div>
                                 ) : (
-                                    <div className="h-[0.5rem]">
+                                    <div className="mt-1 h-[0.5rem]">
                                         <p></p>
                                     </div>
                                 )   
                             }
                             {
                                 errorTwo ? (
-                                    <div className="text-xs h-[0.5rem] font-black">
+                                    <div className="mt-1 text-xs h-[0.5rem] font-black">
                                         <p>*The answer may be ambiguous. Try another question!</p>
                                     </div>
                                 ) : (
-                                    <div className="h-[0.5rem]">
+                                    <div className="mt-1 h-[0.5rem]">
                                         <p></p>
                                     </div>
                                 )   
