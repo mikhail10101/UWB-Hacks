@@ -28,7 +28,7 @@ export default function SendEmailForm() {
                 </div>
             </form>
             <Link href="/login">
-                <p className='text-white font-semibold py-5 hover:underline'>Back</p>
+                <p className='text-[#AC3B61] font-semibold py-5 hover:underline'>Back</p>
             </Link>
         </div>
     )

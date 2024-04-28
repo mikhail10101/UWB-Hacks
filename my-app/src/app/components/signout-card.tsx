@@ -12,7 +12,7 @@ export default function SignoutCard() {
     }
 
     return (
-        <div className='flex flex-col rounded-3xl items-center w-[20rem] h-[20rem] gap-10'>
+        <div className='flex flex-col rounded-3xl items-center w-[20rem] h-[10rem] gap-10'>
             <div className='flex flex-col items-center gap-2'>
                 <p className='text-6xl font-black'>
                     Sign out
