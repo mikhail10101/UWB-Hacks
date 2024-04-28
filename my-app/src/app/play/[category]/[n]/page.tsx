@@ -1,7 +1,13 @@
 import QuestionBlockWrapper from '@/app/components/question-block-wrapper';
 import { notFound } from 'next/navigation'
 
-export default function NumberedPlayPage({ params }: {params: {category: string, n : string}}) {
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/auth-options';
+
+export default async function NumberedPlayPage({ params }: {params: {category: string, n : string}}) {
+    const session = await getServerSession(authOptions)
+    if (!session) { notFound() }
+    
     const nums = [5,10,20,30]
     const cats = ["diseases", "animals", "countries"]
     const q = parseInt(params.n)

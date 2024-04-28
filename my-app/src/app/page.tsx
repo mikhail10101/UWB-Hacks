@@ -1,20 +1,36 @@
 import Link from "next/link";
 import HamButton from "./components/hambutton";
 
-export default function main() {
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/auth-options";
+
+export default async function main() {
+  const session = await getServerSession(authOptions)
   return (
     <>
       <nav className="flex items-center justify-end">
-        <a
-          href="/login"
-          className="absolute font-medium top-[.1rem] right-[1.5rem] bg-inherit rounded-md flex items-center justify-center hover:underline hover:underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50"
-        >
-          Login
-        </a>
+        {
+          session ? (
+            <Link
+              href="/signout"
+              className="absolute font-medium top-[.1rem] right-[1.5rem] bg-inherit rounded-md flex items-center justify-center hover:underline hover:underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50"
+            >
+              Signout
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="absolute font-medium top-[.1rem] right-[1.5rem] bg-inherit rounded-md flex items-center justify-center hover:underline hover:underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50"
+            >
+              Login
+            </Link>
+          )
+        }
+          
       </nav>
 
       <Link href="/rules">
-        <p className="absolute font-medium top-[.1rem] right-[5.5rem] bg-inherit rounded-md flex items-center justify-center hover:underline hover:underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50">
+        <p className="absolute font-medium top-[.1rem] right-[6rem] bg-inherit rounded-md flex items-center justify-center hover:underline hover:underline-offset-1 mt-[1.25rem] text-[#AC3B61] z-50">
           Rules
         </p>
       </Link>
