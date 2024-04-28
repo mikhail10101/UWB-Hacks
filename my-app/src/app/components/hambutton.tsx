@@ -21,7 +21,7 @@ const HamButton = ({ display }: {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
       </button>
-        <div className={`bg-white fixed flex justify-center top-0 left-[-8rem] h-full w-[16rem] transform transition-transform ${isOpen ? 'translate-x-[8rem]' : '-translate-x-[10rem]'}`}>
+        <div className={`bg-white fixed flex justify-center top-0 left-[-8rem] h-full w-[16rem] transform transition-transform overflow-scroll ${isOpen ? 'translate-x-[8rem]' : '-translate-x-[10rem]'}`}>
           <div className='flex flex-col text-black mt-[5rem] w-[11rem]'>
             {
               display.map((d, index) => {
@@ -29,7 +29,7 @@ const HamButton = ({ display }: {
                 return (
                   <div key={index + ""} className='flex flex-col'>
                     <p className="text-lg text-[#123C69] font-bold font-serif truncate">{index+1}. {question}</p>
-                    <p className="ml-[1.5rem] text-sm text-[#AC3B61] ml-4 mb-2 font-black">{answer}</p>
+                    <p className="ml-[1.5rem] text-sm text-[#AC3B61] mb-2 font-black">{answer}</p>
                   </div>
                 )
               })
